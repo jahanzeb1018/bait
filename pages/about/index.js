@@ -87,7 +87,7 @@ export const aboutData = [
       },
     ],
   },
-]
+];
 
 
 // Components
