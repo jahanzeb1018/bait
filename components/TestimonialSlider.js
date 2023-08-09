@@ -1,5 +1,5 @@
 
-export const TestimonialSlider = [
+/*export const TestimonialSlider = [
   {
     image: '/t-avt-1.png',
     name: 'Anne Smith',
