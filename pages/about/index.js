@@ -20,7 +20,7 @@ import {
 // about data
 export const aboutData = [
   {
-    title: 'skills',
+    title: 'Development',
     info: [
       {
         title: 'Web Development',
