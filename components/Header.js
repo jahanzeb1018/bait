@@ -17,7 +17,7 @@ const Header = () => {
             <Image src={'/logo.svg'} width={220} height={40} alt='' priority={true}/>
           </Link>
           {/* socials */}
-          <Socials />
+          {/*<Socials />*/}
         </div>
       </div>
     </header>

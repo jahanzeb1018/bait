@@ -19,14 +19,14 @@ const Home = () => {
      
      <div className='bg-primary/60 h-full'>
       {/* text */}
-      <div className='w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10 '>
+      <div className='w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10'>
         <div className='text-center flex flex-col justify-center xl:pt-30 xl:text-left h-full container mx-auto'>
           {/* title */}
           <motion.h1 variants={fadeIn('down', 0.2)} initial='hidden' animate='show' exit='hidden' className='h1'>
           Listen AI <span className='text-accent'>beats</span>
           </motion.h1>
           <motion.p variants={fadeIn('down', 0.3)} initial='hidden' animate='show' exit='hidden' className='max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16 text-justify'>
-          We have a dream of breaking language barriers. On a mission to making possible to <span className='font-bold'>dub every video</span> in this world <span className='font-bold'>using AI</span>, we will create a future with freedom of listening.
+          Breaking barriers through the power of AI. Welcome to the place where problems are met with intelligent solutions. Our mission is to revolutionize industries, reshape experiences, and create a future where AI-driven advancements are at the forefront of progress.
           </motion.p>
           {/* btn*/}
           <div className='flex justify-center xl:hidden relative z-10 '>

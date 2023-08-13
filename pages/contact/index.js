@@ -10,7 +10,25 @@ import { motion } from 'framer-motion';
 // variants
 import { fadeIn } from '../../variants';
 
+// email
+import {useRef} from "react";
+import emailjs from '@emailjs/browser';
+
 const Contact = () => {
+  const form = useRef();
+  
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_64duftj', 'template_v6newie', form.current, 'RvqKJ3bW_lC-efK4f')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  };
+
   return (
     <div className='h-full bg-primary/30'>
       <div className='container mx-auto py-32 text-center xl:text-left flex
@@ -29,6 +47,8 @@ const Contact = () => {
           </motion.h2>
           {/* form */}
           <motion.form 
+            ref={form}
+            onSubmit={sendEmail}
             variants={fadeIn('up', 0.4)} 
             initial="hidden" 
             animate="show" 
@@ -37,14 +57,15 @@ const Contact = () => {
           >
             {/* group */}
             <div className='flex gap-x-6 w-full'>
-              <input type='text' placeholder='name' className='input' />
-              <input type='text' placeholder='email' className='input' />
+              <input type='text' placeholder='Name' name='user_name' className='input' required/>
+              <input type='text' placeholder='Email' name='user_email' className='input' required/>
             </div>
-            <input type='text' placeholder='subject' className='input' />
-            <textarea placeholder='message' className='textarea'></textarea>
-            <button className='btn rounded-full border border-white/50 max-w-[170px]
+            <input type='text' placeholder='Subject' name='user_subject' className='input' required/>
+            <textarea placeholder='Message' name='user_text' className='textarea' required></textarea>
+            <button type="submit" className='btn --btn-primary rounded-full border border-white/50 max-w-[170px]
             px-8 transition-all duration-300 flex items-center justify-center
             overflow-hidden hover:border-accent group'>
+              
               <span className='group-hover:-translate-y-[120%] group-hover:opacity-0
               transition-all duration-500'>
                 Let&apos;s talk
