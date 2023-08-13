@@ -1,5 +1,6 @@
 // components
 import Circles from '/components/Circles';
+import React, { useState } from "react";
 
 // icons
 import { BsArrowRight } from 'react-icons/bs';
@@ -14,7 +15,26 @@ import { fadeIn } from '../../variants';
 import {useRef} from "react";
 import emailjs from '@emailjs/browser';
 
+// validator
+import validator from 'validator';
+
 const Contact = () => {
+
+  const [emailError, setEmailError] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  // Email Validation
+const validateEmail = (e) => {
+  var email = e.target.value
+
+  if (validator.isEmail(email)) {
+     setEmailError('')
+     setIsEmailValid(true);
+  } else {
+     setEmailError('Invalid email');
+     setIsEmailValid(false);
+  }
+};
+
   const form = useRef();
   
   const sendEmail = (e) => {
@@ -58,13 +78,19 @@ const Contact = () => {
             {/* group */}
             <div className='flex gap-x-6 w-full'>
               <input type='text' placeholder='Name' name='user_name' className='input' required/>
-              <input type='text' placeholder='Email' name='user_email' className='input' required/>
+              <input 
+                type='text' 
+                placeholder='Email' 
+                name='user_email' 
+                className='input' 
+                onChange={(e) => validateEmail(e)}
+                /> <span style={{color: 'red' }}>{emailError}</span>
             </div>
             <input type='text' placeholder='Subject' name='user_subject' className='input' required/>
             <textarea placeholder='Message' name='user_text' className='textarea' required></textarea>
-            <button type="submit" className='btn --btn-primary rounded-full border border-white/50 max-w-[170px]
+            <button type="submit" className={`btn --btn-primary rounded-full border border-white/50 max-w-[170px]
             px-8 transition-all duration-300 flex items-center justify-center
-            overflow-hidden hover:border-accent group'>
+            overflow-hidden hover:border-accent group'EmailValid ? 'disabled' : ''}`} disabled={!isEmailValid}>
               
               <span className='group-hover:-translate-y-[120%] group-hover:opacity-0
               transition-all duration-500'>
