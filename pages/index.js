@@ -26,7 +26,7 @@ const Home = () => {
           Listen AI <span className='text-accent'>beats</span>
           </motion.h1>
           <motion.p variants={fadeIn('down', 0.3)} initial='hidden' animate='show' exit='hidden' className='max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16 text-justify'>
-          Breaking barriers through the power of AI. Welcome to the place where problems are met with intelligent solutions. Our mission is to revolutionize industries, reshape experiences, and create a future where AI-driven advancements are at the forefront of progress.
+          Breaking barriers through the power of AI. Welcome to the place where problems are met with intelligent solutions. On a mission to revolutionize industries, reshape experiences, and create a future where AI-driven advancements are at the forefront of progress.
           </motion.p>
           {/* btn*/}
           <div className='flex justify-center xl:hidden relative z-10 '>
